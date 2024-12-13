@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Футбольный клуб Libertad</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(180deg, #70c5b4 0%, #ffffff 100%);
+            margin: 0;
+            padding: 0;
+            color: #000;
+  
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px; /* Уменьшаем размер шрифта на мобильных устройствах */
+    }
+    .header h1 {
+        font-size: 18px; /* Уменьшаем размер заголовка */
+    }
+    .menu {
+        display: block; /* Показываем меню в виде блока (например, для мобильной версии) */
+    }
+}
+
+
+/* Для анимации появления */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Стили для всего блока */
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    margin: 0;
+    padding-top: 10px; /* Уменьшение расстояния от верхней границы экрана */
+}
+
+/* Стили для надписи */
+.football-message {
+    font-family: 'Dancing Script'; /* Более курсивный шрифт */
+    font-size: 36px;
+    color: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый цвет */
+    animation: fadeIn 2s ease-out; /* Анимация появления */
+    text-align: center;
+    margin-bottom: -50px; /* Отступ от логотипа */
+}
+
+        .header-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            font-size: 2em;
+            font-weight: bold;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+            opacity: 0.7;
+        }
+
+        #logo {
+            text-align: center;
+            top: -200px;
+        }
+
+        #logo img {
+            width: 300px;
+        }
+
+        #club-name {
+            font-family: 'Lobster', sans-serif;
+            font-size: 5em;
+            font-weight: bold;
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+            color: #333;
+            margin-top: -50px;
+        }
+
+        .section {
+            margin: 40px;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #ffffff;
+        }
+
+        .section:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .section h2 {
+            font-size: 2.5em;
+            text-align: center;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        #sections a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #70c5b4, #f0f0f0);
+            border-radius: 5px;
+            color: #000;
+            font-size: 1.3em;
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid #333;
+        }
+
+        #sections a:hover {
+            background: linear-gradient(45deg, #70c5b4, #ffffff);
+            color: #000;
+        }
+
+        .team {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .team-member {
+            text-align: center;
+            width: 250px;
+        }
+
+        .team-member img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member img:hover {
+            transform: scale(1.05);
+        }
+
+        .team-member p {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .team-member span {
+            font-weight: normal;
+            font-size: 1em;
+            color: #777;
+        }
+
+        .whatsapp-btn {
+            background-color: #f0f0f0;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-align: center;
+margin-top: 20px;
+
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+        }
+
+        .whatsapp-btn a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #contacts {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .location-btn {
+            background-color: #f0f0f0;
+            border: 2px solid #333;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .location-btn:hover {
+            background-color: #70c5b4;
+            color: white;
+        }
+
+        .rights {
+            text-align: center;
+            font-size: 0.9em;
+            color: #888;
+            margin-top: 40px;
+            padding: 10px;
+        }
+
+        .location-btn a,
+        .whatsapp-btn a,
+        .instagram-link a {
+            color: #1abc9c;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .location-btn a:hover,
+        .whatsapp-btn a:hover,
+        .instagram-link a:hover {
+            color: #16a085;
+        }
+
+        .section {
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #locations {
+            text-align: center;
+        }
+
+        .instagram-link {
+            margin-top: 10px;
+            text-align: center;
+        }
+img {
+    max-width: 100%; /* Изображения не будут выходить за пределы экрана */
+    height: auto; /* Сохраняем пропорции изображения */
+}
+
+/* Скрытие элементов на мобильных устройствах */
+@media screen and (max-width: 768px) {
+    .desktop-menu {
+        display: none; /* Скрываем меню для мобильных устройств */
+    }
+}
+
+    </style>
+</head>
+<body>
+
+
+<div class="header">
+    <h1 class="football-message">Футбол - это больше, чем игра!</h1>
+</div>
+
+    <div id="logo" style="text-align:center; margin-top: 100px;">
+        <img src="images/logo.png" alt="Logo">
+        <div id="club-name">Libertad</div>
+    </div>
+
+    <div id="sections" style="text-align:center; font-size: 1em; margin-top: 10px;">
+        <a href="#about">О клубе</a>
+        <a href="#team">Наша команда</a>
+        <a href="#groups">Группы</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#locations">Локации</a>
+        <a href="#contacts">Контакты</a>
+    </div>
+
+    <div class="section" id="about">
+        <h2>О клубе</h2>
+        <p>Футбол - это первый шаг к большим победам!</p>
+        <p>В FC «‌‎Libertad» мы не просто учим играть в футбол. Мы создаем пространство, где каждый ребенок найдет друзей, научится работать в команде и поверит в себя.</p>
+        <p><strong>Что делает нас особенными:</strong></p>
+        <ul>
+            <li>Опытные тренеры знают, как раскрыть талант каждого ребенка.</li>
+            <li>Тренировки проходят в небольших группах, где ваш ребенок получит максимум внимания.</li>
+            <li>Международная атмосфера помогает детям легко находить общий язык и заводить новых друзей.</li>
+        </ul>
+        <p>Ждем юных футболистов от 3 до 12 лет в Торревьехе, Ориуэла-Косте и Аликанте!</p>
+        <p>Хотите увидеть, как тренируются наши чемпионы? Запишитесь на бесплатную пробную тренировку.</p>
+    </div>
+
+    <div class="section" id="team">
+        <h2>Наша команда</h2>
+        <div class="team">
+            <div class="team-member">
+                <img src="images/img1.jpg" alt="Влад Якунин">
+                <p><strong>Влад Якунин</strong></p>
+                <p><span>Главный тренер</span></p>
+            </div>
+            <div class="team-member">
+                <img src="images/img2.jpg" alt="Кристина Чернышенко">
+                <p><strong>Кристина Чернышенко</strong></p>
+                <p><span>Административный директор</span></p>
+            </div>
+            <div class="team-member">
+                <img src="images/img3.jpg" alt="Артем Клименко">
+                <p><strong>Артем Клименко</strong></p>
+                <p><span>Тренер</span></p>
+            </div>
+            <div class="team-member">
+                <img src="images/img4.jpg" alt="Иван Петров">
+                <p><strong>Артур Денчук</strong></p>
+                <p><span>Ассистент тренера</span></p>
+            </div>
+        </div>
+    </div>
+
+   <div class="section" id="group-description">
+    <h2>Группы</h2>
+    <p>В нашей футбольной школе каждый ребенок — это уникальная личность. Мы понимаем важность индивидуального подхода, и поэтому для каждой возрастной группы разработаны персонализированные методики, которые учитывают особенности развития и потребности детей. Наши тренеры внимательно следят за прогрессом каждого ребенка и работают как с отдельным игроком, так и в команде. Мы стремимся создать атмосферу, в которой дети чувствуют себя уверенно и мотивированы на достижение новых высот.</p>
+
+    <p><strong>1. Возраст 3-5 лет:</strong></p>
+    <p>Для детей в возрасте 3-5 лет наша цель — создать увлекательную и безопасную среду для знакомства с футболом. В этот период мы развиваем основные двигательные навыки, координацию и общую физическую подготовку, но в первую очередь ориентируемся на игру. Мы учим детей работать в команде, уважать друг друга, и через простые упражнения знакомим с основами футбольных навыков.</p>
+    <ul>
+        <li><strong>Индивидуальный подход:</strong> Каждый ребенок развивается в своем темпе. Наши тренеры внимательно следят за успехами каждого и создают игровые ситуации, которые подталкивают к развитию ловкости, силы, выносливости и скорости.</li>
+        <li><strong>Методика обучения:</strong> Мы используем игровую форму тренировок, где каждый ребенок может проявить себя. Задания строятся с акцентом на веселое освоение основных движений и базовых понятий футбола: удар по мячу, бег с мячом, передачу и другие простые элементы.</li>
+        <li><strong>Командная работа:</strong> Несмотря на возраст, мы учим детей взаимодействовать друг с другом, работать в команде, делиться мячом и уважать других игроков.</li>
+    </ul>
+
+    <p><strong>2. Возраст 6-8 лет:</strong></p>
+    <p>Дети 6-8 лет начинают осознавать важность тренировки и начинаются первые попытки разбираться в технических аспектах футбольной игры. В этом возрасте мы начинаем вводить более сложные элементы: точные удары, работа с мячом на поле, стратегии командной игры. Наша задача — помочь детям не только развивать навыки, но и начать строить осознанное отношение к тренировкам.</p>
+    <ul>
+        <li><strong>Индивидуальный подход:</strong> Мы обращаем внимание на физическое развитие каждого ребенка и помогаем ему работать над его слабыми сторонами. У нас индивидуальные тренировки, где можно улучшить свои слабые моменты, будь то техника ударов или скорость реакции.</li>
+        <li><strong>Методика обучения:</strong> Тренировки разнообразны и включают элементы футбольных игр, направленных на освоение новых навыков и стратегий игры. Важно, чтобы ребенок чувствовал себя уверенно при выполнении разных упражнений.</li>
+        <li><strong>Командная работа:</strong> Мы активно учим детей командной работе, пониманию ролей в группе, а также взаимодействию с партнерами на поле. Развиваем навыки общения, координации и умение быстро принимать решения.</li>
+    </ul>
+
+    <p><strong>3. Возраст 9-12 лет:</strong></p>
+    <p>Дети в возрасте 9-12 лет начинают серьезнее воспринимать футбол как вид спорта. Мы активно развиваем технические навыки, осваиваем основные тактические схемы и обучаем детей понимать игру. Здесь дети уже начинают понимать важность физической подготовки, точности ударов, а также игровых тактик и стратегий, что способствует их росту как футболистов.</p>
+    <ul>
+        <li><strong>Индивидуальный подход:</strong> Для детей этого возраста важно учитывать их физическое состояние и личные особенности. Мы помогаем развивать не только футбольные навыки, но и умение ставить цели, работать над собой и справляться с нагрузками.</li>
+        <li><strong>Методика обучения:</strong> Тренировки становятся более интенсивными, с упором на развитие техники и тактики игры. Мы обучаем детей профессиональным аспектам футбола, таким как принятие быстрых решений, взаимодействие с партнерами, развитие выносливости и силы.</li>
+        <li><strong>Командная работа:</strong> Важным элементом тренировок является работа в команде. Мы развиваем лидерские качества у каждого ребенка и учим работать в коллективе, принимать ответственность за командный результат.</li>
+    </ul>
+
+    
+    <p>Каждый возрастной этап в нашей футбольной школе — это шаг к становлению полноценного футболиста, и мы уверены, что благодаря индивидуальному подходу, качественным методикам и вниманию к каждому ребенку, наши воспитанники растут уверенными, сильными и мотивированными. Мы верим, что футбол помогает детям не только развивать физические навыки, но и улучшать личные качества, такие как ответственность, уважение и teamwork.</p>
+</div>
+
+
+
+<div class="section" id="gallery">
+    <h2>Галерея</h2>
+    <div class="gallery-wrapper">
+        <!-- Стрелка влево -->
+        <button class="scroll-button left" id="scroll-left">&#10094;</button>
+        
+        <!-- Контейнер с изображениями -->
+        <div class="gallery-container">
+            <!-- Фотографии 1-30 -->
+            <img src="images/1.jpg" alt="Галерея 1" class="gallery-image">
+            <img src="images/2.jpg" alt="Галерея 2" class="gallery-image">
+            <img src="images/3.jpg" alt="Галерея 3" class="gallery-image">
+            <img src="images/4.jpg" alt="Галерея 4" class="gallery-image">
+            <img src="images/5.jpg" alt="Галерея 5" class="gallery-image">
+            <img src="images/6.jpg" alt="Галерея 6" class="gallery-image">
+            <img src="images/7.jpg" alt="Галерея 7" class="gallery-image">
+            <img src="images/8.jpg" alt="Галерея 8" class="gallery-image">
+            <img src="images/9.jpg" alt="Галерея 9" class="gallery-image">
+            <img src="images/10.jpg" alt="Галерея 10" class="gallery-image">
+            <img src="images/11.jpg" alt="Галерея 11" class="gallery-image">
+            <img src="images/12.jpg" alt="Галерея 12" class="gallery-image">
+            <img src="images/13.jpg" alt="Галерея 13" class="gallery-image">
+            <img src="images/14.jpg" alt="Галерея 14" class="gallery-image">
+            <img src="images/15.jpg" alt="Галерея 15" class="gallery-image">
+            <img src="images/16.jpg" alt="Галерея 16" class="gallery-image">
+            <img src="images/17.jpg" alt="Галерея 17" class="gallery-image">
+            <img src="images/18.jpg" alt="Галерея 18" class="gallery-image">
+            <img src="images/19.jpg" alt="Галерея 19" class="gallery-image">
+            <img src="images/20.jpg" alt="Галерея 20" class="gallery-image">
+            <img src="images/21.jpg" alt="Галерея 21" class="gallery-image">
+            <img src="images/22.jpg" alt="Галерея 22" class="gallery-image">
+            <img src="images/23.jpg" alt="Галерея 23" class="gallery-image">
+            <img src="images/24.jpg" alt="Галерея 24" class="gallery-image">
+            <img src="images/25.jpg" alt="Галерея 25" class="gallery-image">
+            <img src="images/26.jpg" alt="Галерея 26" class="gallery-image">
+            <img src="images/27.jpg" alt="Галерея 27" class="gallery-image">
+            <img src="images/28.jpg" alt="Галерея 28" class="gallery-image">
+            <img src="images/29.jpg" alt="Галерея 29" class="gallery-image">
+            <img src="images/30.jpg" alt="Галерея 30" class="gallery-image">
+        </div>
+        
+        <!-- Стрелка вправо -->
+        <button class="scroll-button right" id="scroll-right">&#10095;</button>
+    </div>
+</div>
+
+<style>
+    /* Основной контейнер для галереи */
+    .gallery-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Стиль для стрелок */
+    .scroll-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 24px;
+        cursor: pointer;
+        border-radius: 50%;
+        z-index: 10;
+        transition: background-color 0.3s;
+    }
+
+    .scroll-button:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .left {
+        left: 10px;
+    }
+
+    .right {
+        right: 10px;
+    }
+
+    /* Стили для контейнера галереи */
+    .gallery-container {
+        display: flex;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        scroll-snap-type: x mandatory;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Скрытие стандартных бегунков */
+    .gallery-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .gallery-container {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    /* Стили для изображений */
+    .gallery-image {
+        height: 300px;
+        width: auto;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    /* Эффект увеличения при наведении */
+    .gallery-image:hover {
+        transform: scale(1.8);
+    }
+</style>
+
+<script>
+    // Прокрутка влево
+    document.getElementById('scroll-left').addEventListener('click', () => {
+        const galleryContainer = document.querySelector('.gallery-container');
+        galleryContainer.scrollBy({
+            left: -300,  // Прокручиваем на 300px влево
+            behavior: 'smooth'
+        });
+    });
+
+    // Прокрутка вправо
+    document.getElementById('scroll-right').addEventListener('click', () => {
+        const galleryContainer = document.querySelector('.gallery-container');
+        galleryContainer.scrollBy({
+            left: 300,  // Прокручиваем на 300px вправо
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+
+
+
+
+    <div class="section" id="locations">
+        <h2>Локации</h2>
+        <div id="locations" style="text-align:center;">
+            <a href="https://maps.app.goo.gl/6htgmmjiww2x1K7B6?g_st=com.google.maps.preview.copy" class="location-btn">Ориуэла Коста</a>
+            <a href="https://maps.app.goo.gl/Dx7WRKppitBdfgMx5?g_st=com.google.maps.preview.copy" class="location-btn">Торревьеха</a>
+            <a href="https://maps.app.goo.gl/e37u5CaGUkmGtT6J9?g_st=com.google.maps.preview.copy" class="location-btn">Аликанте</a>
+        </div>
+    </div>
+
+    <div class="section" id="contacts">
+        <h2>Контакты</h2>
+        <p>Email: <a href="mailto:fc.libertad.oc@gmail.com">fc.libertad.oc@gmail.com</a></p>
+        <p>Телефон: <a href="tel:+34634196694">+34 634 19 66 94</a></p>
+        <div class="instagram-link">
+            <a href="https://www.instagram.com/libertad_orihuela_costa?igsh=dmp4NzRtYXFrMWEz" target="_blank">Наш Instagram</a>
+        </div>
+        <div class="whatsapp-btn">
+            <a href="https://wa.me/+34634196694" target="_blank">Напишите в WhatsApp</a>
+        </div>
+    </div>
+
+    <div class="rights">
+        <p>© 2024 FC Libertad. Все права защищены.</p>
+    </div>
+</body>
+</html>
+
+
